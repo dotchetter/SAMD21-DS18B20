@@ -23,7 +23,6 @@ A few platforms that I'm aware of which use this silicon are:
 
 ```c++
 
-
 // Arduino MKR1010
 
 // You must provide which group and port you've connected the sensor to on your board. 
@@ -49,6 +48,8 @@ void loop()
   // Code ...
 }
 ```
+See another example [here](https://github.com/dotchetter/SAMD21-DS18B20/blob/main/examples/TestDS18B20.ino)
+
 
 ## Limitations
 * This driver only supports **one** DS18B20 connected to the device at a time.
