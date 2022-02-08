@@ -40,10 +40,11 @@ void setup()
 void loop()
 {
   // Celcius
-  temp = tempSensor.GetTemperature("C");
+  temp = tempSensor.GetTemperature('C');
+  temp = tempSensor.GetTemperature();    // Defaults to Celcius
   
   // Fahrenheit
-  temp = tempSensor.GetTemperature("F");
+  temp = tempSensor.GetTemperature('F');
   
   // Code ...
 }
