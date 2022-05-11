@@ -7,7 +7,7 @@
 #define TEMP_PINMASK         PORT_PA16
 
 // In this case, the data cable to the DS18B20 sensor is connected to physical port 8 on an MKR1010.
-DS18B20 tempSensor = DS18B20(TEMP_PORT_GROUP, PORT_PA16);
+DS18B20 tempSensor = DS18B20(TEMP_PORT_GROUP, TEMP_PINMASK);
 
 void setup()
 {
