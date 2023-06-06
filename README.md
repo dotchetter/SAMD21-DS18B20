@@ -22,30 +22,26 @@ A few platforms that I'm aware of which use this silicon are:
 ## Example
 
 ```c++
+#include "DS18B20.h"
 
-// Arduino MKR1010
+// Check the table in "DS18B20.h" if you need help with picking these values. 
+// It will depend on where you connect the sensor to your device.
+#define TEMP_PORT_GROUP      0
+#define TEMP_PINMASK         PORT_PA16
 
-// You must provide which group and port you've connected the sensor to on your board. 
-// The DS18B20.h file in this repository has a table for this which you can look up.
-
-DS18B20 tempSensor = DS18B20(TEMP_PORT_GROUP, PORT_PA16);
-float temp;
+// In this case, the data cable to the DS18B20 sensor is connected to physical port 8 on an MKR1010.
+DS18B20 tempSensor = DS18B20(TEMP_PORT_GROUP, TEMP_PINMASK);
 
 void setup()
 {
-  tempSensor.begin();
+    Serial.begin(38400);
+    tempSensor.begin();
 }
 
 void loop()
 {
-  // Celcius
-  temp = tempSensor.GetTemperature('C');
-  temp = tempSensor.GetTemperature();    // Defaults to Celcius
-  
-  // Fahrenheit
-  temp = tempSensor.GetTemperature('F');
-  
-  // Code ...
+    Serial.println(tempSensor.GetTemperature('C'));
+    delay(1000);
 }
 ```
 See another example [here](https://github.com/dotchetter/SAMD21-DS18B20/blob/main/examples/TestDS18B20.ino)
